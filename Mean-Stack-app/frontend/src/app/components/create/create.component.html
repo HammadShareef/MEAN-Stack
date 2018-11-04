@@ -1,0 +1,64 @@
+<div>
+  <br>
+  <mat-card>
+    <section class="mat-typography">
+      <h3>
+         Create a New Issue
+      </h3>
+    </section>
+    <mat-divider></mat-divider>
+    <br>
+    <form [formGroup]="CreateGroup" class="create-form">
+      <mat-form-field class="field-full-width">
+
+        <input matInput placeholder="Issue Title" formControlName="title" #title>
+
+      </mat-form-field>
+      <mat-form-field class="field-full-width">
+
+          <input matInput placeholder="Issue Responsible" formControlName="resposible" #responsible>
+
+        </mat-form-field>
+        <mat-form-field class="field-full-width">
+
+            <textarea matInput placeholder="Issue Description" formControlName="description" #description>
+            </textarea>
+          </mat-form-field>
+          <mat-form-field class="field-full-width">
+
+              <mat-select placeholder="Issue Severity" formControlName="severity" #severity>
+                <mat-option value="Low">Low</mat-option>
+                <mat-option value="Medium">Medium</mat-option>
+                <mat-option value="High">High</mat-option>
+              </mat-select>
+
+            </mat-form-field>
+
+            <mat-divider>
+            </mat-divider>
+            <br><br>
+            <button mat-raised-button color="accent" routerLink="/list">Back</button>
+            <button type="submit" (click)="addIssue(title.value, responsible.value, description.value, severity.value)" [disabled]="CreateGroup.pristine || CreateGroup.invalid" mat-raised-button color="primary">Save</button>
+    </form>
+  </mat-card>
+
+   <!-- <form [formGroup]="CreateGroup" class="create-form">
+      <input  placeholder="Issue Title" formControlName="title" #title>
+      <input  placeholder="Issue Responsible" formControlName="resposible" #responsible>
+      <textarea placeholder="Issue Description" formControlName="description" #description>
+      <input placeholder="Issue severity" formControlName="severity" #responsible>
+      <button mat-raised-button color="accent" routerLink="/list">Back</button>
+       <button type="submit" (click)="addIssue(title.value, responsible.value, description.value, severity.value)">Save</button> -->
+<!--
+      <input  type="text"  placeholder="Issue Responsible">
+</form> -->
+<!--
+
+<form [formGroup]="CreateGroup">
+    <input  placeholder="Issue Title" formControlName="title" #title>
+
+      <input  placeholder="Issue Responsible" formControlName="responsible" #responsible>
+       <textarea placeholder="Issue Description" formControlName="description" #description></textarea>
+       <input placeholder="Issue severity" formControlName="severity" #responsible>
+      <button mat-raised-button color="accent" routerLink="/list">Back</button> -->
+<!-- </form> -->
